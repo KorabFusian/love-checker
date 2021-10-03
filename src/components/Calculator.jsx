@@ -1,5 +1,7 @@
+const seedrandom = require('seedrandom')
 const Calculator = ({ seed }) => {
-  return <div>{seed}</div>
+  let number = new seedrandom(seed)
+  return <div>{number()}</div>
 }
 
 export default Calculator
