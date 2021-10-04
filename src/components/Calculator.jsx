@@ -1,16 +1,16 @@
+import Circle from './Circle'
+
 const seedrandom = require('seedrandom')
 const Calculator = ({ seed, name1, name2 }) => {
   const number = new seedrandom(seed)
+  const value = Math.round(number() * 100)
 
-  const getPercent = () => {
-    return Math.round(number() * 100).toString() + '%'
-  }
-
-  if (seed === ' ') return <></>
+  if (seed === '' || name1 === '' || name2 === '') return <></>
   else
     return (
-      <div>
-        {name1} and {name2} are {getPercent()} compatible !
+      <div id="results" className="flex flex-col justify-center items-center ">
+        <Circle value={value} />
+        {name1} and {name2} are {value}% compatible !
       </div>
     )
 }
