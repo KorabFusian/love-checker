@@ -13,7 +13,9 @@ const Names = () => {
   const generate = (name1, name2) => {
     setPName1(name1)
     setPName2(name2)
-    setseed(name1 + ' ' + name2)
+    const names = [name1, name2].sort()
+
+    setseed(names[0] + ' ' + names[1])
   }
 
   return (
