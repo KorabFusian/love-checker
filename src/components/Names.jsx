@@ -6,7 +6,11 @@ import Header from './Header'
 const Names = () => {
   const [name1, setname1] = useState('')
   const [name2, setname2] = useState('')
-  const [seed, setseed] = useState('')
+  const [seed, setseed] = useState(' ')
+
+  const generate = (name1, name2) => {
+    setseed(name1 + ' ' + name2)
+  }
 
   return (
     <div className="relative py-3 sm:max-w-xl sm:mx-auto">
@@ -29,11 +33,11 @@ const Names = () => {
         />
         <button
           className="mx-auto mt-4 py-3 sm:my-4 rounded-full px-5 hover:bg-red-600 bg-red-200"
-          onClick={() => setseed(name1 + ' ' + name2)}
+          onClick={() => generate(name1, name2)}
         >
           Check !
         </button>
-        <Calculator seed={seed} />
+        <Calculator seed={seed} name1={name1} name2={name2} />
         <Footer />
       </div>
     </div>
