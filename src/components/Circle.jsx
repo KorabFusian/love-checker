@@ -3,8 +3,8 @@ import 'react-circular-progressbar/dist/styles.css'
 
 const Circle = ({ value }) => {
   const getColor = () => {
-    if (value < 33) return 'black'
-    else if (value > 66) return 'rgba(244, 114, 182)'
+    if (value < 34) return 'black'
+    else if (value > 67) return 'rgba(244, 114, 182)'
     else return 'rgba(251, 191, 36)'
   }
 
