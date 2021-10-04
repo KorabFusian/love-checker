@@ -6,16 +6,20 @@ import Header from './Header'
 const Names = () => {
   const [name1, setname1] = useState('')
   const [name2, setname2] = useState('')
+  const [PName1, setPName1] = useState('') //persistent name1
+  const [PName2, setPName2] = useState('') //persistent name2
   const [seed, setseed] = useState(' ')
 
   const generate = (name1, name2) => {
+    setPName1(name1)
+    setPName2(name2)
     setseed(name1 + ' ' + name2)
   }
 
   return (
     <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-      <div className="absolute inset-3 bg-gradient-to-r from-pink-400 to-red-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl" />
-      <div className="relative px-4 py-8 bg-white shadow-lg sm:rounded-3xl sm:p-20 flex flex-col">
+      <div className="absolute inset-0 bg-gradient-to-r from-pink-400 to-red-500 shadow-lg transform skew-y-6 sm:skew-y-0 sm:rotate-6 sm:rounded-3xl" />
+      <div className="relative px-4 py-8 bg-white shadow-lg sm:rounded-3xl sm:p-16 flex flex-col">
         <Header />
         <input
           value={name1}
@@ -37,7 +41,7 @@ const Names = () => {
         >
           Check !
         </button>
-        <Calculator seed={seed} name1={name1} name2={name2} />
+        <Calculator seed={seed} name1={PName1} name2={PName2} />
         <Footer />
       </div>
     </div>
